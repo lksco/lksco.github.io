@@ -37,6 +37,16 @@ a:active {
         opacity: 1;
     }
 }
+@keyframes smallappear {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 
 .pane {
     display: flex;
@@ -46,9 +56,6 @@ a:active {
     transition: 0.3s all;
     letter-spacing: 1px;
     flex: 1 1 0px;
-}
-.pane:hover .wrapper {
-    transform: scale(1.1);
 }
 .pane:hover .go {
     animation-name: updown;
@@ -105,8 +112,12 @@ a:active {
 	color: #cfcfcf;
     line-height: 1.6rem;
 }
-#typeout-1::after,
-#typeout-2::after {
+.subtitle .lang2 {
+    font-size: 1.2rem;
+    letter-spacing: 2.5px;
+}
+#typeout-1 *::after,
+#typeout-2 *::after {
     content: "_";
 }
 .description {
@@ -168,7 +179,7 @@ section.intro .bg {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
-    transition: 0.2s all;
+    transition: 0.3s all;
 }
 .lnk:hover {
     transform: scale(1.05);
@@ -187,17 +198,13 @@ section.intro .bg {
     color: #cfcfcf;
     line-height: 1.6rem;
 }
-
-/* https://alvarotrigo.com/blog/css-animations-scroll/ */
-.reveal * {
-    position: relative;
-    transform: translateY(150px);
-    opacity: 0;
-    transition: 2s all ease;
+.webname .lang2 {
+    font-size: 1.2rem;
+    letter-spacing: 2.5px;
 }
-.reveal .active {
-    transform: translateY(0);
-    opacity: 1;
+
+.lang1 ~ .lang2 {
+	margin-top: 0.3rem;
 }
 
 @media screen and (max-width: 1000px) {
@@ -216,5 +223,11 @@ section.intro .bg {
     }
     .links {
         flex-direction: column;
+    }
+    .wrapper {
+        animation-name: smallappear;
+        animation-duration: 1.8s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
     }
 }
